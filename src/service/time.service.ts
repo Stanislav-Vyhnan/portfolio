@@ -15,7 +15,7 @@ type Response = {
   datetime: string;
 };
 
-const timeApiUrl = 'http://worldtimeapi.org/api/timezone/Europe/Kyiv';
+const timeApiUrl = 'https://worldtimeapi.org/api/timezone/Europe/Kyiv';
 const middleDayHour = 12;
 
 class TimeService {
