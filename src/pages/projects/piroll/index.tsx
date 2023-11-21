@@ -727,7 +727,7 @@ const Piroll = () => {
                 <p>
                   Layout made by:{' '}
                   <a href="https://github.com/filiptraum" target="__blank">
-                    Fillip Traum
+                    Stanislav Vyhnan
                   </a>
                 </p>
                 <span>
