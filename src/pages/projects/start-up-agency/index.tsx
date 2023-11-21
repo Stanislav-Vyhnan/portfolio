@@ -49,9 +49,8 @@ const StartUpAgency = () => {
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href="css/style.min.css" />
       </head>
-      <body>
+      <body className="body">
         <div className="wrapper">
           <div className="scroll-up">
             <picture>

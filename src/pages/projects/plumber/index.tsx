@@ -47,7 +47,7 @@ const Plumber = () => {
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body className="body">
         <div className="popup-call-us">
           <div className="popup-call-us__box">
             <button className="popup-call-us__close-btn">

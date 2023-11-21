@@ -8,6 +8,7 @@ import Mogo from 'src/pages/projects/mogo';
 import Piroll from 'src/pages/projects/piroll';
 import Plumber from 'src/pages/projects/plumber';
 import StartUpAgency from 'src/pages/projects/start-up-agency';
+import TheHam from 'src/pages/projects/the-ham';
 
 import { AppRouterProps } from './types';
 import paths from './paths';
@@ -57,6 +58,14 @@ const routes: AppRouterProps[] = [
     element: (
       <NavBarLayout>
         <StartUpAgency />
+      </NavBarLayout>
+    ),
+  },
+  {
+    path: paths.theHame,
+    element: (
+      <NavBarLayout>
+        <TheHam />
       </NavBarLayout>
     ),
   },
