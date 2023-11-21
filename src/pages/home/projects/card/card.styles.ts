@@ -12,26 +12,29 @@ const cardResponsive = {
 export const CardStyled = styled(
   'li',
   withTransientProps
-)<{ $backgroundColor: string }>(({ theme, $backgroundColor }) => ({
-  width: '218px',
-  height: '218px',
-  margin: theme.spacing(1.5),
-  listStyle: 'none',
-  borderRadius: '20px',
-  position: 'relative',
-  backgroundColor: $backgroundColor,
-  cursor: 'pointer',
-  boxShadow: '5px 5px 5px 0px rgba(0, 0, 0, 0.50)',
+)<{ $enableAnimation: boolean; $backgroundColor: string }>(
+  ({ theme, $enableAnimation, $backgroundColor }) => ({
+    width: '218px',
+    height: '218px',
+    margin: theme.spacing(1.5),
+    listStyle: 'none',
+    borderRadius: '20px',
+    position: 'relative',
+    backgroundColor: $backgroundColor,
+    cursor: 'pointer',
+    boxShadow: '5px 5px 5px 0px rgba(0, 0, 0, 0.50)',
 
-  ...theme.mixins.transition('transform', 'boxShadow'),
+    ...theme.mixins.transition('transform', 'boxShadow'),
 
-  ':hover': {
-    transform: 'scale(1.05)',
-    boxShadow: '10px 10px 10px 0px rgba(0, 0, 0, 0.50)',
-  },
+    ...($enableAnimation ? theme.mixins.enableCardAnimation() : {}),
 
-  '@media screen and (max-width:767px)': { ...cardResponsive },
-}));
+    '&:hover': {
+      ...theme.mixins.enableCardAnimation(),
+    },
+
+    '@media screen and (max-width:767px)': { ...cardResponsive },
+  })
+);
 
 export const CardImage = styled(
   'img',

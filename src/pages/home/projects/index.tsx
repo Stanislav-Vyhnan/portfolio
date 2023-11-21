@@ -1,28 +1,35 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from 'react';
+
 import { Typography } from 'src/pages/common/typography';
+import { scrollSettings } from 'src/constants/scroll.settings';
 
 import { CardsContainer, ProjectsWrapper } from './projects.styles';
 import Card from './card';
 import { cards } from './projects.settings';
 
 const Projects = () => {
-  // const [height, setHeight] = useState<number | null>(null);
+  const [idCardWithAnimation, setIdCardWithAnimation] = useState<number | null>(null);
+  const [firstCardRef, setFirstCardRef] = useState<HTMLLIElement | null>(null);
 
-  // const cardsContainerRef = useRef<HTMLUListElement | null>(null);
+  useEffect(() => {
+    const cardAnimation = () => {
+      let index = 0;
+      const maxLength = cards.length;
 
-  // useEffect(() => {
-  //   if (cardsContainerRef.current) {
-  //     window.addEventListener('resize', () => {
-  //       if (window.innerWidth < mobileWidth) {
-  //         const windowHeight = window.innerHeight;
-  //         const offsetHeight = cardsContainerRef.current!.offsetTop;
-  //         const cardsContainerHeight =
-  //           windowHeight - offsetHeight - outsidePaddingBottom - insidePaddingBottom;
-  //         console.log(cardsContainerHeight);
-  //         setHeight(cardsContainerHeight);
-  //       }
-  //     });
-  //   }
-  // });
+      const intervalId = setInterval(() => {
+        if (index === maxLength) {
+          window.clearInterval(intervalId);
+          firstCardRef!.scrollIntoView(scrollSettings);
+        }
+
+        setIdCardWithAnimation(index);
+        index++;
+      }, 700);
+    };
+
+    if (firstCardRef) cardAnimation();
+  }, [firstCardRef]);
 
   return (
     <ProjectsWrapper>
@@ -30,9 +37,12 @@ const Projects = () => {
         Projects
       </Typography>
       <CardsContainer>
-        {cards.map(({ link, title, styles, logoSrc, backgroundColor }, index) => (
+        {cards.map(({ link, id, title, styles, logoSrc, backgroundColor }) => (
           <Card
-            key={index}
+            key={id}
+            id={id}
+            setFirstCardRef={setFirstCardRef}
+            enableAnimation={id === idCardWithAnimation}
             link={link}
             title={title}
             logoSrc={logoSrc}

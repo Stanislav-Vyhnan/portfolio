@@ -14,6 +14,7 @@ import { CardTypes } from './card';
 
 export const cards: CardTypes[] = [
   {
+    id: 0,
     title: 'Kallyas',
     link: paths.kallyas,
     logoSrc: kallyasLogo,
@@ -27,6 +28,7 @@ export const cards: CardTypes[] = [
     } as CSSProperties,
   },
   {
+    id: 1,
     title: 'MoGo',
     link: paths.mogo,
     logoSrc: mogoLogo,
@@ -36,6 +38,7 @@ export const cards: CardTypes[] = [
     } as CSSProperties,
   },
   {
+    id: 2,
     title: 'Piroll',
     link: paths.piroll,
     logoSrc: pirollLogo,
@@ -45,6 +48,7 @@ export const cards: CardTypes[] = [
     } as CSSProperties,
   },
   {
+    id: 3,
     link: paths.plumber,
     logoSrc: plumberLogo,
     backgroundColor: '#1b1c4a',
@@ -53,6 +57,7 @@ export const cards: CardTypes[] = [
     } as CSSProperties,
   },
   {
+    id: 4,
     link: paths.startUpAgency,
     title: 'Start-Up Agency',
     logoSrc: startUpProjectLogo,
@@ -60,8 +65,9 @@ export const cards: CardTypes[] = [
       color: theme.palette.white,
     } as CSSProperties,
   },
-  { link: paths.theHame, logoSrc: theHamLogo, styles: {} },
+  { id: 5, link: paths.theHame, logoSrc: theHamLogo, styles: {} },
   {
+    id: 6,
     link: paths.vibo,
     title: 'Vibo',
     logoSrc: viboLogo,
