@@ -33,14 +33,15 @@ class TimeService {
     const date = new Date(timestamp);
     const currentHours = date.getHours();
 
+    const period = currentHours < middleDayHour ? TimePeriods.AM : TimePeriods.PM;
+
     const minutes = date.getMinutes();
-    const hours = currentHours - middleDayHour;
+    const hours = period === TimePeriods.AM ? currentHours : currentHours - middleDayHour;
 
     const zeroMinutes = minutes < 10 ? '0' : '';
     const zeroHours = hours < 10 ? '0' : '';
 
     const time = `${zeroHours}${hours}:${zeroMinutes}${minutes}`;
-    const period = currentHours < middleDayHour ? TimePeriods.AM : TimePeriods.PM;
 
     return {
       time,

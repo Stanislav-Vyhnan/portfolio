@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-import { theme } from './theme';
+import { theme } from 'src/theme';
 
 export const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&display=swap');

@@ -7,7 +7,7 @@ export interface Mixins {
 
 export const mixins: Mixins = {
   transition: (...properties: string[]) => ({
-    transition: properties.map(property => `${property} 150ms ease-in-out`).join(', '),
+    transition: properties.map(property => `${property} 300ms ease-in-out`).join(', '),
   }),
   customScrollbar: () =>
     ({

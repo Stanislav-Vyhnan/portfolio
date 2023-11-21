@@ -16,6 +16,7 @@ export const CardsContainer = styled('ul')(({ theme }) => ({
   height: `calc(768px - ${outsidePaddingY}px - ${insidePaddingY}px - ${headerHeight}px)`,
   overflow: 'auto',
   paddingRight: theme.spacing(1.5),
+  paddingBottom: theme.spacing(3),
 
   ...theme.mixins.customScrollbar(),
 }));

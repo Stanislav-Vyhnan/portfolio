@@ -16,6 +16,14 @@ export const CardStyled = styled(
   position: 'relative',
   backgroundColor: $backgroundColor,
   cursor: 'pointer',
+  boxShadow: '5px 5px 5px 0px rgba(0, 0, 0, 0.50)',
+
+  ...theme.mixins.transition('transform', 'boxShadow'),
+
+  ':hover': {
+    transform: 'scale(1.05)',
+    boxShadow: '10px 10px 10px 0px rgba(0, 0, 0, 0.50)',
+  },
 }));
 
 export const CardImage = styled(
@@ -33,19 +41,6 @@ export const CardImage = styled(
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   filter: $isBlur ? 'blur(1px)' : 'none',
-}));
-
-export const CardButton = styled('button')(({ theme }) => ({
-  width: '100%',
-  height: '100%',
-  background: 'none',
-  color: 'inherit',
-  font: 'inherit',
-  outline: 'inherit',
-  border: 'none',
-  borderRadius: '20px',
-  padding: theme.spacing(2),
-  boxShadow: '5px 5px 5px 0px rgba(0, 0, 0, 0.50)',
 }));
 
 export const CardTitle = styled(

@@ -1,21 +1,29 @@
 import { CSSProperties } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { theme } from 'src/theme';
 
-import { CardButton, CardImage, CardStyled, CardTitle } from './card.styles';
+import { CardImage, CardStyled, CardTitle } from './card.styles';
 
 export type CardTypes = {
   styles: CSSProperties;
+  link: string;
   title?: string;
   logoSrc?: string;
   backgroundColor?: string;
   isBlur?: boolean;
 };
 
-const Card = ({ title, styles, logoSrc, backgroundColor, isBlur }: CardTypes) => {
+const Card = ({ title, link, styles, logoSrc, backgroundColor, isBlur }: CardTypes) => {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    console.log(link);
+    navigate(link);
+  };
+
   return (
-    <CardStyled $backgroundColor={backgroundColor ?? theme.palette.white}>
-      <CardButton />
+    <CardStyled $backgroundColor={backgroundColor ?? theme.palette.white} onClick={onClick}>
       {logoSrc && <CardImage src={logoSrc} $isBlur={!!isBlur} />}
       <CardTitle
         component="span"
