@@ -4,6 +4,11 @@ import styled from '@emotion/styled';
 import { withTransientProps } from 'src/utils/styled.utils';
 import { Typography } from 'src/pages/common/typography';
 
+const cardResponsive = {
+  width: '156px',
+  height: '156px',
+} as CSSProperties; // max-width: 767px
+
 export const CardStyled = styled(
   'li',
   withTransientProps
@@ -24,6 +29,8 @@ export const CardStyled = styled(
     transform: 'scale(1.05)',
     boxShadow: '10px 10px 10px 0px rgba(0, 0, 0, 0.50)',
   },
+
+  '@media screen and (max-width:767px)': { ...cardResponsive },
 }));
 
 export const CardImage = styled(
@@ -41,6 +48,8 @@ export const CardImage = styled(
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   filter: $isBlur ? 'blur(1px)' : 'none',
+
+  '@media screen and (max-width:767px)': { ...cardResponsive },
 }));
 
 export const CardTitle = styled(

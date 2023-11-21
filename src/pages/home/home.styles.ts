@@ -7,6 +7,14 @@ export const HomeWrapper = styled('div')(({ theme }) => ({
 
   display: 'flex',
   justifyContent: 'center',
+
+  '@media screen and (max-width:767px)': {
+    padding: theme.spacing(4),
+  },
+
+  '@media screen and (max-width:420px)': {
+    padding: theme.spacing(2),
+  },
 }));
 
 export const Container = styled('div')(({ theme }) => ({
@@ -22,5 +30,13 @@ export const Container = styled('div')(({ theme }) => ({
   borderRadius: '20px',
 
   display: 'flex',
-  flexWrap: 'wrap',
+
+  '@media screen and (max-width:767px)': {
+    alignItems: 'center',
+  },
+
+  '@media screen and (max-width:570px)': {
+    maxHeight: '100%',
+    flexDirection: 'column',
+  },
 }));
