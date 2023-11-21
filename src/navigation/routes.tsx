@@ -5,6 +5,7 @@ import { useRoutes } from 'react-router-dom';
 
 import Kallyas from 'src/pages/projects/kallyas';
 import Mogo from 'src/pages/projects/mogo';
+import Piroll from 'src/pages/projects/piroll';
 
 import { AppRouterProps } from './types';
 import paths from './paths';
@@ -30,6 +31,14 @@ const routes: AppRouterProps[] = [
     element: (
       <NavBarLayout>
         <Mogo />
+      </NavBarLayout>
+    ),
+  },
+  {
+    path: paths.piroll,
+    element: (
+      <NavBarLayout>
+        <Piroll />
       </NavBarLayout>
     ),
   },
