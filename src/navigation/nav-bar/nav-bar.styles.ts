@@ -16,7 +16,7 @@ export const NavBar = styled(
 )<{ $isShow: boolean }>(({ theme, $isShow }) => ({
   position: 'fixed',
   width: `${navBarSize}px`,
-  height: `${navBarSize}px`,
+  height: `50px`,
   top: '50%',
   transform: 'translateY(-50%)',
   left: $isShow ? '0' : `-${navBarSize}px`,
@@ -34,22 +34,21 @@ export const BackButton = styled('button')(({ theme }) => ({
   fontFamily: theme.typography.fontFamily,
   width: '100%',
   height: '100%',
-  borderRadius: '0px 20px 20px 0px',
   border: '4px solid black',
   borderLeftWidth: '0px',
+  borderRightWidth: '0px',
   background: theme.palette.blue,
   zIndex: 105,
 
   ...theme.mixins.transition('background'),
 
   '&:hover': {
-    '& span': { ...theme.mixins.transition('color'), color: theme.palette.white },
     background: theme.palette.mainGradient,
-    borderColor: theme.palette.white,
+    borderColor: theme.palette.grey,
   },
 }));
 
-const arrowSize = 35;
+const arrowSize = 37;
 
 export const NavBarIcon = styled(
   'button',
@@ -66,16 +65,16 @@ export const NavBarIcon = styled(
   transform: 'translateY(-50%)',
   zIndex: 50,
   background: 'none',
-  left: $enableAnimation ? '70px' : `calc(${navBarSize}px - 6px)`,
+  left: $enableAnimation ? '70px' : `calc(${navBarSize}px)`,
   animation: $enableAnimation ? `${blinker} 1s ease infinite;` : 'none',
 
   '&:hover': {
-    borderLeft: `${arrowSize}px solid ${theme.palette.white}`,
+    borderLeft: `${arrowSize}px solid ${theme.palette.grey}`,
   },
 
   '&:before': {
     position: 'absolute',
-    content: '""',
+    content: $enableAnimation ? '""' : 'none',
     width: 0,
     height: 0,
     borderLeft: `${arrowSize}px solid ${theme.palette.blue}`,

@@ -4,6 +4,7 @@ import { useRoutes } from 'react-router-dom';
 // import ErrorPageNotFound from 'pages/errors/PageNotFound'
 
 import Kallyas from 'src/pages/projects/kallyas';
+import Mogo from 'src/pages/projects/mogo';
 
 import { AppRouterProps } from './types';
 import paths from './paths';
@@ -21,6 +22,14 @@ const routes: AppRouterProps[] = [
     element: (
       <NavBarLayout>
         <Kallyas />
+      </NavBarLayout>
+    ),
+  },
+  {
+    path: paths.mogo,
+    element: (
+      <NavBarLayout>
+        <Mogo />
       </NavBarLayout>
     ),
   },
