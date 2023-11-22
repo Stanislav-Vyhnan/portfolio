@@ -11,9 +11,10 @@ export const ProjectsWrapper = styled('div')(({ theme }) => ({
   marginLeft: theme.spacing(2.5),
 
   '@media screen and (max-width:570px)': {
+    marginTop: theme.spacing(1.5),
     marginLeft: 0,
     display: 'grid',
-    height: '300px',
+    height: '1px',
   },
 }));
 
@@ -30,11 +31,8 @@ export const CardsContainer = styled('ul')(({ theme }) => ({
   ...theme.mixins.customScrollbar(),
 
   '@media screen and (max-width:570px)': {
+    height: '100%',
     paddingRight: 0,
     gridTemplateRows: '1fr',
-  },
-
-  '@media screen and (max-width:420px)': {
-    height: '100%',
   },
 }));
