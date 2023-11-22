@@ -35,6 +35,11 @@ const IntroLayout = ({ children }: React.PropsWithChildren) => {
           <Intro ref={introRef}>
             <IntroTextStyled component="div" fontSize={36} fontWeight={700}>
               {letters.map((letter, index) => (
+                <span key={index} id={`border-letter-${index}`} className="text-border">
+                  {letter}
+                </span>
+              ))}
+              {letters.map((letter, index) => (
                 <span key={index} id={`animated-letter-${index}`}>
                   {letter}
                 </span>

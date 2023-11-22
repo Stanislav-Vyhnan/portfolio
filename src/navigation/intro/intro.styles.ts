@@ -25,13 +25,24 @@ export const IntroTextStyled = styled(Typography)(({ theme }) => ({
   position: 'relative',
   overflow: 'hidden',
   zIndex: 210,
+  userSelect: 'none',
 
   '& span': {
     position: 'absolute',
     left: '50%',
     top: '150px',
     content: '""',
+  },
+
+  '& span:not(.text-border)': {
     animation: `${blinker} 1500ms ease infinite;`,
+  },
+
+  '& .text-border': {
+    color: theme.palette.blue,
+    textShadow: '2px 2px 2px rgba(0, 0, 0, 0.5)',
+    outline: 'black',
+    opacity: '50%',
   },
 
   ...theme.mixins.transition('top'),
@@ -43,6 +54,6 @@ export const IntroTextStyled = styled(Typography)(({ theme }) => ({
 
 const blinker = keyframes`
     50% {
-      opacity: 20%;
+      opacity: 40%;
     }
   `;

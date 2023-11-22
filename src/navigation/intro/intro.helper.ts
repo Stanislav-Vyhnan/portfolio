@@ -21,6 +21,16 @@ export const introAnimation = (introRef: HTMLDivElement, cb: () => void) => {
 
   let topPosition = 0;
 
+  for (let i = 0; i < letters.length; i++) {
+    if (isMobile) {
+      topPosition = mobileAnimation('border-letter', i, startLeftPosition, topPosition, false);
+    } else {
+      desktopAnimation('border-letter', i, startLeftPosition, false);
+    }
+  }
+
+  topPosition = 0;
+
   const intervalId = setInterval(() => {
     if (index === maxLength) {
       setTimeout(() => {
@@ -35,9 +45,9 @@ export const introAnimation = (introRef: HTMLDivElement, cb: () => void) => {
     }
 
     if (isMobile) {
-      topPosition = mobileAnimation(index, startLeftPosition, topPosition);
+      topPosition = mobileAnimation('animated-letter', index, startLeftPosition, topPosition, true);
     } else {
-      desktopAnimation(index, startLeftPosition);
+      desktopAnimation('animated-letter', index, startLeftPosition, true);
     }
     index++;
   }, letterAnimationSpeed);
@@ -45,10 +55,16 @@ export const introAnimation = (introRef: HTMLDivElement, cb: () => void) => {
 
 const ignoreIndexList = [9, 11];
 
-const mobileAnimation = (index: number, startLeftPosition: number, topPosition: number): number => {
+const mobileAnimation = (
+  className: string,
+  index: number,
+  startLeftPosition: number,
+  topPosition: number,
+  isAnimated: boolean
+): number => {
   let newTopPosition = topPosition;
 
-  const letterElement = document.getElementById(`animated-letter-${index}`) as HTMLSpanElement;
+  const letterElement = document.getElementById(`${className}-${index}`) as HTMLSpanElement;
   let newLeftPosition = startLeftPosition + oneLetterWidth * index;
 
   if (ignoreIndexList.includes(index)) {
@@ -59,20 +75,35 @@ const mobileAnimation = (index: number, startLeftPosition: number, topPosition: 
     newLeftPosition = startLeftPosition + oneLetterWidth * (index - 12);
   }
 
-  setAnimation(letterElement, newLeftPosition, newTopPosition);
+  setAnimation(letterElement, newLeftPosition, newTopPosition, isAnimated);
 
   return newTopPosition;
 };
 
-const desktopAnimation = (index: number, startLeftPosition: number) => {
-  const letterElement = document.getElementById(`animated-letter-${index}`) as HTMLSpanElement;
+const desktopAnimation = (
+  className: string,
+  index: number,
+  startLeftPosition: number,
+  isAnimated: boolean
+) => {
+  const letterElement = document.getElementById(`${className}-${index}`) as HTMLSpanElement;
   const newLeftPosition = startLeftPosition + oneLetterWidth * index;
 
-  setAnimation(letterElement, newLeftPosition, 0);
+  console.log(letterElement);
+
+  setAnimation(letterElement, newLeftPosition, 0, isAnimated);
 };
 
-const setAnimation = (element: HTMLSpanElement, leftPosition: number, topPosition: number) => {
-  element.style.transition = theme.mixins.transition('left', 'top').transition as string;
+const setAnimation = (
+  element: HTMLSpanElement,
+  leftPosition: number,
+  topPosition: number,
+  isAnimated: boolean
+) => {
+  if (isAnimated) {
+    element.style.transition = theme.mixins.transition('left', 'top').transition as string;
+  }
+
   element.style.left = `${leftPosition}px`;
   element.style.top = `${topPosition}px`;
 };
