@@ -46,5 +46,5 @@ export const AvatarImgStyled = styled('img')(() => ({
   height: '368px',
   borderRadius: '20px',
 
-  '@media screen and (max-width:767px)': { ...avatarResponsive, height: 'min-content' },
+  '@media screen and (max-width:767px)': { ...avatarResponsive, maxHeight: '100%' },
 }));

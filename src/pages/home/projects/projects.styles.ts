@@ -11,7 +11,7 @@ export const ProjectsWrapper = styled('div')(({ theme }) => ({
   marginLeft: theme.spacing(2.5),
 
   '@media screen and (max-width:570px)': {
-    marginTop: theme.spacing(1.5),
+    marginTop: theme.spacing(8),
     marginLeft: 0,
     display: 'grid',
     height: '1px',
