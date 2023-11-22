@@ -1,37 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import { CardsAnimationContext } from 'src/context/cardsAnimation.context';
-import { theme } from 'src/theme';
 import { LocalStorageKeys } from 'src/constants/localStorageKeys';
+import { letters } from 'src/constants/intro';
 
 import { Intro, IntroContainer, IntroTextStyled } from './intro.styles';
-
-const letters = [
-  'S',
-  't',
-  'a',
-  'n',
-  'i',
-  's',
-  'l',
-  'a',
-  'v',
-  '\xa0',
-  '•',
-  `\xa0`,
-  'P',
-  'o',
-  'r',
-  't',
-  'f',
-  'o',
-  'l',
-  'i',
-  'o',
-];
-
-const letterAnimationSpeed = 100;
-const bgHideAnimationSpeed = 1000;
+import { introAnimation } from './intro.helper';
 
 const IntroLayout = ({ children }: React.PropsWithChildren) => {
   const [enableCardsAnimation, setEnableCardsAnimation] = useState<boolean>(false);
@@ -44,50 +18,13 @@ const IntroLayout = ({ children }: React.PropsWithChildren) => {
   const introRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const introAnimation = () => {
+    const cb = () => {
       const isShowCardsAnimation = !sessionStorage.getItem(LocalStorageKeys.enableAnimation);
-      const textLength = 441;
-      let index = 0;
-      const maxLength = letters.length;
-      const windowWidth = window.innerWidth;
-
-      let leftPosition = windowWidth / 2 - textLength / 2;
-
-      const intervalId = setInterval(() => {
-        if (index === maxLength) {
-          setTimeout(() => {
-            introRef.current!.style.transition = `opacity ${bgHideAnimationSpeed}ms ease-in-out`;
-            introRef.current!.style.opacity = `0%`;
-
-            setTimeout(() => {
-              setEnableIntro(false);
-              setEnableCardsAnimation(isShowCardsAnimation);
-            }, bgHideAnimationSpeed - 200);
-          }, bgHideAnimationSpeed * 2);
-
-          window.clearInterval(intervalId);
-          return;
-        }
-
-        const letterElement = document.getElementById(
-          `animated-letter-${index}`
-        ) as HTMLSpanElement;
-
-        const newLeftPosition = leftPosition + 22;
-        leftPosition = newLeftPosition;
-
-        letterElement.style.transition = theme.mixins.transition('left', 'top')
-          .transition as string;
-
-        letterElement.style.left = `${newLeftPosition}px`;
-        letterElement.style.top = '0px';
-
-        index++;
-      }, letterAnimationSpeed);
+      setEnableIntro(false);
+      setEnableCardsAnimation(isShowCardsAnimation);
     };
-
-    if (enableIntro) introAnimation();
-  }, []);
+    if (enableIntro && introRef.current) introAnimation(introRef.current!, cb);
+  }, [introRef]);
 
   return (
     <CardsAnimationContext.Provider

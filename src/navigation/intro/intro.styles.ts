@@ -21,22 +21,24 @@ export const IntroContainer = styled('div')(() => ({
 
 export const IntroTextStyled = styled(Typography)(({ theme }) => ({
   width: '100vw',
-  height: '46px',
+  height: '130px',
   position: 'relative',
   overflow: 'hidden',
   zIndex: 210,
-  display: 'flex',
-  justifyContent: 'center',
 
   '& span': {
     position: 'absolute',
     left: '50%',
-    top: '50px',
+    top: '150px',
     content: '""',
     animation: `${blinker} 1500ms ease infinite;`,
   },
 
   ...theme.mixins.transition('top'),
+
+  '@media screen and (max-width:485px)': {
+    marginBottom: theme.spacing(13),
+  },
 }));
 
 const blinker = keyframes`
