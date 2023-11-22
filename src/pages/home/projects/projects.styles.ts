@@ -22,7 +22,7 @@ export const CardsContainer = styled('ul')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   flexWrap: 'wrap',
-  overflow: 'auto',
+  overflowY: 'scroll',
   paddingRight: theme.spacing(1.5),
   paddingBottom: theme.spacing(3),
 
