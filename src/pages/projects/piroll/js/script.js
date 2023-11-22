@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export const scriptFunc = () => {
   function gabmurgerFunc(gamburderSelector, navigationSelector, itemsSelector) {
     const gamburger = document.querySelector(gamburderSelector);
