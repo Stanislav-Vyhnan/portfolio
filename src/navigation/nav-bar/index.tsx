@@ -7,7 +7,11 @@ import paths from '../paths';
 
 import { BackButton, NavBar, NavBarIcon, NavBarLayoutStyled } from './nav-bar.styles';
 
-const NavBarLayout = ({ children }: React.PropsWithChildren) => {
+type Props = {
+  projectClassName: string;
+} & React.PropsWithChildren;
+
+const NavBarLayout = ({ projectClassName, children }: Props) => {
   const navigate = useNavigate();
   const [isShow, setIsShow] = useState(false);
 
@@ -21,7 +25,7 @@ const NavBarLayout = ({ children }: React.PropsWithChildren) => {
   };
 
   return (
-    <NavBarLayoutStyled>
+    <NavBarLayoutStyled id={projectClassName}>
       <NavBar $isShow={isShow}>
         <BackButton onClick={onBack}>
           <Typography fontSize={24} fontWeight={600}>

@@ -1,0 +1,33 @@
+#kallyas {
+    @import './pages/projects/kallyas/scss/style.scss';
+    @import './pages/projects/kallyas/scss/animation.scss';
+    @import './pages/projects/kallyas/scss/media.scss';
+}
+
+#mogo {
+    @import 'src/pages/projects/mogo/scss/style.scss';
+    @import 'src/pages/projects/mogo/scss/animation.scss';
+    @import 'src/pages/projects/mogo/scss/media.scss';
+}
+
+#piroll {
+    @import 'src/pages/projects/piroll/scss/style.scss';
+}
+
+#plumber {
+    @import 'src/pages/projects/plumber/scss/style.scss';
+}
+
+#start-up-agency {
+    @import 'src/pages/projects/start-up-agency/scss/style.scss';
+}
+
+#the-ham {
+    @import 'src/pages/projects/the-ham/scss/style.scss';
+}
+
+#vibo {
+    @import 'src/pages/projects/vibo/scss/style.scss';
+    @import 'src/pages/projects/vibo/scss/animation.scss';
+    @import 'src/pages/projects/vibo/scss/media.scss';
+}

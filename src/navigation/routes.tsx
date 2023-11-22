@@ -15,6 +15,16 @@ import { AppRouterProps } from './types';
 import paths from './paths';
 import NavBarLayout from './nav-bar';
 
+enum ProjectClasses {
+  Kallyas = 'kallyas',
+  Mogo = 'mogo',
+  Piroll = 'piroll',
+  Plumber = 'plumber',
+  StartUpAgency = 'start-up-agency',
+  TheHam = 'the-ham',
+  Vibo = 'vibo',
+}
+
 const Home = lazy(() => import('../pages/home/'));
 
 const routes: AppRouterProps[] = [
@@ -25,7 +35,7 @@ const routes: AppRouterProps[] = [
   {
     path: paths.kallyas,
     element: (
-      <NavBarLayout>
+      <NavBarLayout projectClassName={ProjectClasses.Kallyas}>
         <Kallyas />
       </NavBarLayout>
     ),
@@ -33,7 +43,7 @@ const routes: AppRouterProps[] = [
   {
     path: paths.mogo,
     element: (
-      <NavBarLayout>
+      <NavBarLayout projectClassName={ProjectClasses.Mogo}>
         <Mogo />
       </NavBarLayout>
     ),
@@ -41,7 +51,7 @@ const routes: AppRouterProps[] = [
   {
     path: paths.piroll,
     element: (
-      <NavBarLayout>
+      <NavBarLayout projectClassName={ProjectClasses.Piroll}>
         <Piroll />
       </NavBarLayout>
     ),
@@ -49,7 +59,7 @@ const routes: AppRouterProps[] = [
   {
     path: paths.plumber,
     element: (
-      <NavBarLayout>
+      <NavBarLayout projectClassName={ProjectClasses.Plumber}>
         <Plumber />
       </NavBarLayout>
     ),
@@ -57,7 +67,7 @@ const routes: AppRouterProps[] = [
   {
     path: paths.startUpAgency,
     element: (
-      <NavBarLayout>
+      <NavBarLayout projectClassName={ProjectClasses.StartUpAgency}>
         <StartUpAgency />
       </NavBarLayout>
     ),
@@ -65,7 +75,7 @@ const routes: AppRouterProps[] = [
   {
     path: paths.theHame,
     element: (
-      <NavBarLayout>
+      <NavBarLayout projectClassName={ProjectClasses.TheHam}>
         <TheHam />
       </NavBarLayout>
     ),
@@ -73,7 +83,7 @@ const routes: AppRouterProps[] = [
   {
     path: paths.vibo,
     element: (
-      <NavBarLayout>
+      <NavBarLayout projectClassName={ProjectClasses.Vibo}>
         <Vibo />
       </NavBarLayout>
     ),

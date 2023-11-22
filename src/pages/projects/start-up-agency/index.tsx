@@ -10,8 +10,6 @@ const StartUpAgency = () => {
     scriptFunc();
   }, []);
 
-  require('./css/style.css');
-
   return (
     <>
       <head>

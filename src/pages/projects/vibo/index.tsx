@@ -10,10 +10,6 @@ const Vibo = () => {
     scriptFunc();
   }, []);
 
-  require('./css/style.css');
-  require('./css/media.css');
-  require('./css/animation.css');
-
   return (
     <>
       <head>
