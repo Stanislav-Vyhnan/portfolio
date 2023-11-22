@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 import { withTransientProps } from 'src/utils/styled.utils';
 import { Typography } from 'src/pages/common/typography';
@@ -10,7 +11,7 @@ const cardResponsive = {
 } as CSSProperties; // max-width: 767px
 
 export const CardStyled = styled(
-  'li',
+  Link,
   withTransientProps
 )<{ $enableAnimation: boolean; $backgroundColor: string }>(
   ({ theme, $enableAnimation, $backgroundColor }) => ({
@@ -24,7 +25,7 @@ export const CardStyled = styled(
     cursor: 'pointer',
     boxShadow: '5px 5px 5px 0px rgba(0, 0, 0, 0.50)',
 
-    ...theme.mixins.transition('transform', 'boxShadow'),
+    ...theme.mixins.transition('transform', 'box-shadow'),
 
     ...($enableAnimation ? theme.mixins.enableCardAnimation() : {}),
 

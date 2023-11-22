@@ -33,7 +33,7 @@ export const mixins: Mixins = {
 
   enableCardAnimation: () =>
     ({
-      transition: 'transform 500ms ease-in-out, box-shadow 500ms ease-in-out',
+      transition: 'transform 300ms ease-in-out, box-shadow 500ms ease-in-out',
       transform: 'scale(1.05)',
       boxShadow: '10px 10px 10px 0px rgba(0, 0, 0, 0.50)',
     } as CSSProperties),

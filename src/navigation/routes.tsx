@@ -11,9 +11,10 @@ import StartUpAgency from 'src/pages/projects/start-up-agency';
 import TheHam from 'src/pages/projects/the-ham';
 import Vibo from 'src/pages/projects/vibo';
 
-import { AppRouterProps } from './types';
 import paths from './paths';
-import NavBarLayout from './nav-bar';
+import StyleLayout from './style-layout';
+import IntroLayout from './intro';
+import { AppRouterProps } from './types';
 
 enum ProjectClasses {
   Kallyas = 'kallyas',
@@ -30,62 +31,66 @@ const Home = lazy(() => import('../pages/home/'));
 const routes: AppRouterProps[] = [
   {
     path: paths.home,
-    element: <Home />,
+    element: (
+      <IntroLayout>
+        <Home />
+      </IntroLayout>
+    ),
   },
   {
     path: paths.kallyas,
     element: (
-      <NavBarLayout projectClassName={ProjectClasses.Kallyas}>
+      <StyleLayout projectClassName={ProjectClasses.Kallyas}>
         <Kallyas />
-      </NavBarLayout>
+      </StyleLayout>
     ),
   },
   {
     path: paths.mogo,
     element: (
-      <NavBarLayout projectClassName={ProjectClasses.Mogo}>
+      <StyleLayout projectClassName={ProjectClasses.Mogo}>
         <Mogo />
-      </NavBarLayout>
+      </StyleLayout>
     ),
   },
   {
     path: paths.piroll,
     element: (
-      <NavBarLayout projectClassName={ProjectClasses.Piroll}>
+      <StyleLayout projectClassName={ProjectClasses.Piroll}>
         <Piroll />
-      </NavBarLayout>
+      </StyleLayout>
     ),
   },
   {
     path: paths.plumber,
     element: (
-      <NavBarLayout projectClassName={ProjectClasses.Plumber}>
+      <StyleLayout projectClassName={ProjectClasses.Plumber}>
         <Plumber />
-      </NavBarLayout>
+      </StyleLayout>
     ),
   },
   {
     path: paths.startUpAgency,
     element: (
-      <NavBarLayout projectClassName={ProjectClasses.StartUpAgency}>
+      <StyleLayout projectClassName={ProjectClasses.StartUpAgency}>
         <StartUpAgency />
-      </NavBarLayout>
+      </StyleLayout>
     ),
   },
   {
     path: paths.theHame,
     element: (
-      <NavBarLayout projectClassName={ProjectClasses.TheHam}>
+      <StyleLayout projectClassName={ProjectClasses.TheHam}>
         <TheHam />
-      </NavBarLayout>
+      </StyleLayout>
     ),
   },
   {
     path: paths.vibo,
     element: (
-      <NavBarLayout projectClassName={ProjectClasses.Vibo}>
+      <StyleLayout projectClassName={ProjectClasses.Vibo}>
         <Vibo />
-      </NavBarLayout>
+      </StyleLayout>
     ),
   },
 ];

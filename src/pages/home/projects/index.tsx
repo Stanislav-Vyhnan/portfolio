@@ -1,35 +1,41 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
 import { Typography } from 'src/pages/common/typography';
 import { scrollSettings } from 'src/constants/scroll.settings';
+import { useCardsAnimationContext } from 'src/context/cardsAnimation.context';
+import { LocalStorageKeys } from 'src/constants/localStorageKeys';
 
 import { CardsContainer, ProjectsWrapper } from './projects.styles';
 import Card from './card';
 import { cards } from './projects.settings';
 
 const Projects = () => {
+  const { enableCardsAnimation } = useCardsAnimationContext();
+
   const [idCardWithAnimation, setIdCardWithAnimation] = useState<number | null>(null);
-  const [firstCardRef, setFirstCardRef] = useState<HTMLLIElement | null>(null);
+  const [firstCardRef, setFirstCardRef] = useState<HTMLAnchorElement | null>(null);
 
   useEffect(() => {
     const cardAnimation = () => {
       let index = 0;
       const maxLength = cards.length;
 
+      setIdCardWithAnimation(index++);
+
       const intervalId = setInterval(() => {
         if (index === maxLength) {
           window.clearInterval(intervalId);
           firstCardRef!.scrollIntoView(scrollSettings);
+          sessionStorage.setItem(LocalStorageKeys.enableAnimation, 'showed');
         }
 
         setIdCardWithAnimation(index);
         index++;
-      }, 700);
+      }, 300);
     };
 
-    if (firstCardRef) cardAnimation();
-  }, [firstCardRef]);
+    if (firstCardRef && enableCardsAnimation) cardAnimation();
+  }, [firstCardRef, enableCardsAnimation]);
 
   return (
     <ProjectsWrapper>

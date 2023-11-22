@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeOptions, theme } from './theme';
 
 import 'normalize.css/normalize.css';
-import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(

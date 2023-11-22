@@ -8,7 +8,7 @@ import Projects from './projects';
 const Home = () => {
   return (
     <>
-      <Global styles={globalStyles} />{' '}
+      <Global styles={globalStyles} />
       <HomeWrapper>
         <Container>
           <Avatar />

@@ -1,8 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-empty-function */
 
 import { CSSProperties, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { theme } from 'src/theme';
 import { scrollSettings } from 'src/constants/scroll.settings';
@@ -14,7 +12,7 @@ export type CardTypes = {
   styles: CSSProperties;
   link: string;
   title?: string;
-  setFirstCardRef?: (cardRef: HTMLLIElement) => void;
+  setFirstCardRef?: (cardRef: HTMLAnchorElement) => void;
   logoSrc?: string;
   backgroundColor?: string;
   isBlur?: boolean;
@@ -25,19 +23,14 @@ const Card = ({
   id,
   title,
   setFirstCardRef = () => {},
-  enableAnimation = true,
+  enableAnimation = false,
   link,
   styles,
   logoSrc,
   backgroundColor,
   isBlur,
 }: CardTypes) => {
-  const cardRef = useRef<HTMLLIElement | null>(null);
-  const navigate = useNavigate();
-
-  const onClick = () => {
-    navigate(link);
-  };
+  const cardRef = useRef<HTMLAnchorElement | null>(null);
 
   useEffect(() => {
     if (cardRef.current && id === 0) {
@@ -53,9 +46,10 @@ const Card = ({
 
   return (
     <CardStyled
+      to={link}
+      target="_blank"
       $enableAnimation={enableAnimation}
       $backgroundColor={backgroundColor ?? theme.palette.white}
-      onClick={onClick}
       ref={cardRef}
     >
       {logoSrc && <CardImage src={logoSrc} $isBlur={!!isBlur} />}
