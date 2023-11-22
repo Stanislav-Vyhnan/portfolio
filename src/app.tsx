@@ -4,7 +4,7 @@ import Navigation from './navigation';
 
 const App = () => {
   useEffect(() => {
-    console.log('Version: 1.1.0');
+    console.log('Version: 1.1.1');
   }, []);
 
   return <Navigation />;
