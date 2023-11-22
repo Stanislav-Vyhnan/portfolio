@@ -35,7 +35,6 @@ const avatarResponsive = {
 
 export const AvatarWrapper = styled('div')(() => ({
   width: '320px',
-  height: 'min-content',
   marginBottom: '20px',
 
   '@media screen and (max-width:767px)': { ...avatarResponsive },
@@ -43,8 +42,8 @@ export const AvatarWrapper = styled('div')(() => ({
 
 export const AvatarImgStyled = styled('img')(() => ({
   width: '320px',
-  height: '368px',
+  maxHeight: '368px',
   borderRadius: '20px',
 
-  '@media screen and (max-width:767px)': { ...avatarResponsive, maxHeight: '100%' },
+  '@media screen and (max-width:767px)': { ...avatarResponsive },
 }));
