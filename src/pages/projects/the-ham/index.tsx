@@ -4,6 +4,8 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import { useEffect } from 'react';
 
+import { config } from 'src/constants/config';
+
 import { scriptFunc } from './js/script';
 
 const TheHam = () => {
@@ -1229,10 +1231,7 @@ const TheHam = () => {
             <div className="container">
               <div className="footer__row">
                 <p>
-                  Layout made by:{' '}
-                  <a href="https://github.com/filiptraum" target="__blank">
-                    Stanislav Vyhnan
-                  </a>
+                  Layout made by: <a href={config.baseUrl}>Stanislav Vyhnan</a>
                 </p>
                 <span>
                   Free template by:{' '}
