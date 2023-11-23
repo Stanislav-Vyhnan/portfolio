@@ -39,9 +39,9 @@ class TimeService {
     const hours = period === TimePeriods.AM ? currentHours : currentHours - middleDayHour;
 
     const zeroMinutes = minutes < 10 ? '0' : '';
-    const zeroHours = hours < 10 ? '0' : '';
+    const zeroHours = hours || 12 < 10 ? '0' : ''; // || 12 - if hours = 0, then should be 12. Ex: 12:10 AM or 12:10 PM
 
-    const time = `${zeroHours}${hours}:${zeroMinutes}${minutes}`;
+    const time = `${zeroHours}${hours || 12}:${zeroMinutes}${minutes}`;
 
     return {
       time,

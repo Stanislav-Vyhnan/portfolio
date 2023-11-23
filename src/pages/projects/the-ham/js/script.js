@@ -25,7 +25,6 @@ export const scriptFunc = () => {
         menuOpen = false;
         navigation.classList.remove('open');
         body.classList.remove('opened');
-        console.log(e.target);
       }
     });
 

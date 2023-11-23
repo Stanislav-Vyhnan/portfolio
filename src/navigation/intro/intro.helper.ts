@@ -89,8 +89,6 @@ const desktopAnimation = (
   const letterElement = document.getElementById(`${className}-${index}`) as HTMLSpanElement;
   const newLeftPosition = startLeftPosition + oneLetterWidth * index;
 
-  console.log(letterElement);
-
   setAnimation(letterElement, newLeftPosition, 0, isAnimated);
 };
 
